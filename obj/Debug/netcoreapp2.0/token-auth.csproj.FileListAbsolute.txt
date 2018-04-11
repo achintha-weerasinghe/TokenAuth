@@ -1,0 +1,10 @@
+E:\Programming\ASP .NET\MyProjects\token-auth\bin\Debug\netcoreapp2.0\token-auth.deps.json
+E:\Programming\ASP .NET\MyProjects\token-auth\bin\Debug\netcoreapp2.0\token-auth.runtimeconfig.json
+E:\Programming\ASP .NET\MyProjects\token-auth\bin\Debug\netcoreapp2.0\token-auth.runtimeconfig.dev.json
+E:\Programming\ASP .NET\MyProjects\token-auth\bin\Debug\netcoreapp2.0\token-auth.dll
+E:\Programming\ASP .NET\MyProjects\token-auth\bin\Debug\netcoreapp2.0\token-auth.pdb
+E:\Programming\ASP .NET\MyProjects\token-auth\obj\Debug\netcoreapp2.0\token-auth.csproj.CoreCompileInputs.cache
+E:\Programming\ASP .NET\MyProjects\token-auth\obj\Debug\netcoreapp2.0\token-auth.AssemblyInfoInputs.cache
+E:\Programming\ASP .NET\MyProjects\token-auth\obj\Debug\netcoreapp2.0\token-auth.AssemblyInfo.cs
+E:\Programming\ASP .NET\MyProjects\token-auth\obj\Debug\netcoreapp2.0\token-auth.dll
+E:\Programming\ASP .NET\MyProjects\token-auth\obj\Debug\netcoreapp2.0\token-auth.pdb
