@@ -1,10 +1,12 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using token_auth.Models.ViewModels;
 
 namespace token_auth.Controllers
@@ -39,10 +41,18 @@ namespace token_auth.Controllers
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var claims = new[] {
+                new Claim(type: JwtRegisteredClaimNames.Sub, value: user.Id.ToString()),
+                new Claim(type: JwtRegisteredClaimNames.Email, value: user.Email),
+                new Claim(type: JwtRegisteredClaimNames.Birthdate, value: user.Birthday.ToString("yyyy-MM-dd")),
+                new Claim(type: JwtRegisteredClaimNames.Jti, value: Guid.NewGuid().ToString()),
+                new Claim(type: "roles", value: JsonConvert.SerializeObject(user.Roles))
+            };
 
             var token = new JwtSecurityToken(
                 _config["JWT:Issuer"], 
                 _config["JWT:Issuer"],
+                claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: creds
                 );
@@ -61,7 +71,8 @@ namespace token_auth.Controllers
                     Id = 1, 
                     Name = "Achintha Madumal", 
                     Email = "achinthamadumal@gmail.com", 
-                    Birthday = DateTime.Now 
+                    Birthday = DateTime.Now,
+                    Roles = new string[] { "admin", "user" }
                 };
             }
 
